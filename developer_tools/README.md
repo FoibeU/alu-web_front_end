@@ -1,0 +1,1 @@
+This is a responsive website, you can run it into the large screen and also into the mobile device
