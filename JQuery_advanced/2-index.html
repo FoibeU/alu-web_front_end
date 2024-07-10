@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Create Family Tree</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRL2PSA4U5G3jXJlYFf6wOR5Fkw8jcH9jI27z3l7v" 
+        crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        $(document).ready(function() {
+            // Function to create and append the table
+            function createFamilyTree() {
+                var table = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Guillaume</td>
+                                <td>Salva</td>
+                            </tr>
+                            <tr>
+                                <td>Paulette</td>
+                                <td>Salva</td>
+                            </tr>
+                            <tr>
+                                <td>Antoine</td>
+                                <td>Salva</td>
+                            </tr>
+                        </tbody>
+                    </table>`;
+                $('body').append(table); // Append the table to the body
+            }
+
+            createFamilyTree(); // Call the function to create the family tree table
+        });
+    </script>
+</head>
+<body>
+    <!-- Placeholder for the table -->
+</body>
+</html>

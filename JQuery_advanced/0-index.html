@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Load Verification</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRL2PSA4U5G3jXJlYFf6wOR5Fkw8jcH9jI27z3l7v" 
+        crossorigin="anonymous" type="application/javascript"></script>
+    <script type="application/javascript">
+        window.onload = function() {
+            if (typeof jQuery !== 'undefined') {
+                console.log("jQuery has been loaded correctly");
+            } else {
+                console.log("jQuery has not been loaded correctly");
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Check Console for jQuery Load Status</h1>
+</body>
+</html>
