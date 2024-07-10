@@ -1,72 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
     <title>Task 5</title>
-    <style>
-        td {
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-
-        td.remove-cell {
-            background-color: orange;
-            cursor: pointer;
-        }
-    </style>
-</head>
-
-<body>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRL2PSA4U5G3jXJlYFf6wOR5Fkw8jcH9jI27z3l7v"
-        crossorigin="anonymous"></script>
-
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
     <script type="application/javascript">
+      $(document).ready(function () {
         function createFamilyTree() {
-            // Remove any existing table (cleanup)
-            $('table').remove();
-
-            // Create new table structure
-            let table = $('<table>');
-            let thead = $('<thead>').appendTo(table);
-            let headerRow = $('<tr>').appendTo(thead);
-            $('<th>').text('Firstname').appendTo(headerRow);
-            $('<th>').text('Lastname').appendTo(headerRow);
-
-            $('<tbody>').appendTo(table);
-
-            // Append table to the body
-            $('body').append(table);
+          $("body").append([
+            $("<table/>").append([
+              $("<thead/>").append([
+                $("<tr/>").append([
+                  $("<th/>", { text: "Firstname" }),
+                  $("<th/>", { text: "Lastname" }),
+                ]),
+              ]),
+              $("<tbody/>"),
+            ]),
+          ]);
         }
 
         function addNewMember(firstName, lastName) {
-            // Create new row
-            let newRow = $('<tr>');
-            $('<td>').text(firstName).appendTo(newRow);
-            $('<td>').text(lastName).appendTo(newRow);
-
-            // Create remove cell
-            let removeCell = $('<td>').addClass('remove-cell').text('(x)').appendTo(newRow);
-            removeCell.click(function() {
-                $(this).parent('tr').remove();
-            });
-
-            // Append row to the table body
-            $('table tbody').append(newRow);
+          $("tbody").append([
+            $("<tr/>").append([
+              $("<td/>", { text: firstName }),
+              $("<td/>", { text: lastName }),
+              $("<td/>", {
+                text: "(x)",
+                css: { backgroundColor: "orange", cursor: "pointer" },
+                on: {
+                  click: function () {
+                    $(this).parents("tr").remove();
+                  },
+                },
+              }),
+            ]),
+          ]);
         }
 
-        // Initialize the family tree
         createFamilyTree();
-
-        // Add fake data using addNewMember function
-        addNewMember('Guillaume', 'Salva');
-        addNewMember('Arielle', 'Snizt');
-        addNewMember('Fanette', 'Snizt');
-        addNewMember('Gerard', 'Snizt');
-        addNewMember('Victor', 'Salva');
+        addNewMember("Guillaume", "Salva");
+        addNewMember("Arielle", "Snizt");
+        addNewMember("Fanette", "Snizt");
+        addNewMember("Gerard", "Snizt");
+        addNewMember("Victor", "Salva");
+      });
     </script>
-</body>
+  </head>
 
+  <body></body>
 </html>
